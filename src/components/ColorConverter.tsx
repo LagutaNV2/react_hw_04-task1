@@ -6,11 +6,11 @@ interface ColorConverterProps {
   initialHex?: string;
 }
 
-export const ColorConverter: React.FC<ColorConverterProps> = ({ initialHex = '#34495e' }) => {
-  const [hexInput, setHexInput] = useState(initialHex);
+export const ColorConverter: React.FC<ColorConverterProps> = () => {
+// export const ColorConverter: React.FC<ColorConverterProps> = ({ initialHex = '#34495e' }) => {
+  const [hexInput, setHexInput] = useState('#34495e'); // начальный цвет
   const [rgbOutput, setRgbOutput] = useState<{ r: number; g: number; b: number } | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
   const [textColor, setTextColor] = useState<string>('white');
   const [rgbBgColor, setRgbBgColor] = useState<string>('#2c3e50'); // темнее стартового цвета
 
@@ -35,7 +35,7 @@ export const ColorConverter: React.FC<ColorConverterProps> = ({ initialHex = '#3
   };
 
   useEffect(() => {
-    if (initialHex.length === 7) applyColor(initialHex);
+    applyColor('#34495e');
   }, []);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
